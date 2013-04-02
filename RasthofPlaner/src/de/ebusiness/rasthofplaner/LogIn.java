@@ -46,10 +46,10 @@ public class LogIn extends Activity {
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
                 UserFunctions userFunction = new UserFunctions();
-                JSONObject json = userFunction.loginUser(email, password);
  
                 // check for login response
                 try {
+                	JSONObject json = userFunction.loginUser(email, password);
                     if (json.getString(KEY_SUCCESS) != null) {
                         loginErrorMsg.setText("");
                         String res = json.getString(KEY_SUCCESS);
