@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+        
+       <!--  Header  Starts-->
+       <LinearLayout android:id="@+id/header"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:background="@layout/header_gradient"
+               android:paddingTop="5dip"
+               android:paddingBottom="5dip">
+
+        <TextView
+            android:id="@+id/textHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Registration"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColorLink="@android:color/darker_gray"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+           
+       </LinearLayout> 
+        <!--  Header Ends -->  
+        
+	<LinearLayout
+	    android:id="@+id/footer"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true" >
+
+	    <Button
+	        android:id="@+id/registrieren_button_zurueck"
+	        android:layout_width="124dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.33"
+	        android:onClick="onButtonClick"
+	        android:text="Zurück" />
+
+	    <Button
+	        android:id="@+id/registrieren_button_registrieren"
+	        android:layout_width="124dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.34"
+	        android:text="Registrieren" />
+
+	</LinearLayout>
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_above="@id/footer"
+    android:layout_below="@id/header"
+     >	
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical"
+    android:padding="10dip"
+    android:scrollbarAlwaysDrawVerticalTrack="false" >
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_anrede"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    
+    <Spinner
+        android:id="@+id/login_anrede"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/anrede"
+        tools:listitem="@android:layout/list_content" /> 
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_vorname"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/login_vorname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/mainmenu_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_nachname"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/login_nachname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_email"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/TextView08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_tel"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/login_telefonnummer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/TextView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_password"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/registrieren_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/TextView06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registrieren_password"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/login_password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
+	</LinearLayout>
+</ScrollView>	
+		
+		<TextView android:id="@android:id/empty" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text= ""
+		android:layout_below="@id/header" android:layout_above="@id/footer" />
+		
+</RelativeLayout>

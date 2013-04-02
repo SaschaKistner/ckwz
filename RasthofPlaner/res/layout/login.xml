@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LogIn" >
+
+    <TextView
+        android:id="@+id/mainmenu_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="33dp"
+        android:text="@string/login_username" />
+
+    <EditText
+        android:id="@+id/login_vorname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mainmenu_name"
+        android:layout_below="@+id/mainmenu_name"
+        android:ems="10"
+        android:inputType="text|textEmailSubject" >
+
+        <requestFocus />
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/login_vorname"
+        android:layout_below="@+id/login_vorname"
+        android:layout_marginTop="31dp"
+        android:text="@string/login_password" />
+
+    <EditText
+        android:id="@+id/login_password2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView01"
+        android:layout_below="@+id/TextView01"
+        android:ems="10"
+        android:inputType="text|textPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/login_password2"
+        android:layout_centerVertical="true"
+        android:text="@string/login_checkbox" />
+
+    <TextView
+        android:id="@+id/login_registrieren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/mainmenu_name"
+        android:clickable="true"
+        android:onClick="onTextClick"
+        android:text="@string/login_registrieren"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login_registrieren"
+        android:layout_toRightOf="@+id/TextView01"
+        android:text="@string/login_passwortVergessen"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/login_button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/checkBox1"
+        android:layout_alignRight="@+id/login_vorname"
+        android:layout_below="@+id/checkBox1"
+        android:layout_marginTop="28dp"
+        android:text="@string/login_button_login" />
+
+    <TextView
+        android:id="@+id/login_error"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/login_button_login"
+        android:layout_alignRight="@+id/login_button_login"
+        android:layout_below="@+id/login_button_login"
+        android:layout_marginTop="18dp" />
+
+</RelativeLayout>

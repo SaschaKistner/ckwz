@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RasthofPlaner</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="login_username">eMail</string>
+    <string name="login_password">Passwort</string>
+    <string name="login_checkbox">Passwort merken?</string>
+    <string name="login_registrieren">sich registrieren</string>
+    <string name="login_passwortVergessen">Passwort vergessen?</string>
+    <string name="registrieren_vorname">Vorname</string>
+    <string name="registrieren_nachname">Nachname</string>
+    <string name="registrieren_anrede">Anrede</string>
+    <string name="registrieren_strasse">Straße</string>
+    <string name="registrieren_email">Email-Adresse</string>
+    <string name="registrieren_plz">Postleitzahl</string>
+    <string name="registrieren_ort">Ort</string>
+    <string name="registrieren_gebDatum">Geburtstag</string>
+    <string name="registrieren_tel">Telefonnummer</string>
+    <string name="registrieren_password">Passwort</string>
+    <string name="login_button_login">LogIn</string>
+    <string name="login_error"></string>
+    <string name="mainMenu_button_logout">Logout</string>
+    <string name="mainmenu_button_logout">Logout</string>
+
+</resources>

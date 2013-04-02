@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- Header  Starts -->
+
+    <LinearLayout
+        android:id="@+id/header2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@layout/header_gradient"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip" >
+
+        <TextView
+            android:id="@+id/textHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Hauptmenü"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColorLink="@android:color/darker_gray"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+    <!-- Header Ends -->
+
+    <Button
+        android:id="@+id/mainMenu_button_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainmenu_button_logout" />
+
+    <TextView
+        android:id="@+id/mainmenu_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dip"
+        android:textSize="20sp" />
+
+</LinearLayout>
