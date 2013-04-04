@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class LogIn extends Activity {
-	//TEST
+	//TEST2
 	Button btnLogin, btnRegistry;
 	EditText inputEmail;
 	EditText inputPassword;
