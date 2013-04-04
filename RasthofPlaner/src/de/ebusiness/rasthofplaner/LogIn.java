@@ -82,8 +82,8 @@ public class LogIn extends Activity {
 								loggingIn(json, email);
 							} else {
 								AlertDialog.Builder alert = new AlertDialog.Builder(LogIn.this);
-								alert.setTitle("Login failed");
-								alert.setMessage("Incorrect username/password");
+								alert.setTitle("Anmeldefehler");
+								alert.setMessage("Benutzername und/oder Passwort sind inkorrekt!");
 								alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {  
 									@Override  
 									public void onClick(DialogInterface dialog, int which) {  

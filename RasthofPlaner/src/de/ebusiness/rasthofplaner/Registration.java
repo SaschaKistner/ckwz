@@ -6,7 +6,11 @@ import org.json.JSONObject;
 import de.ebusiness.util.DatabaseHandler;
 import de.ebusiness.util.UserFunctions;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +30,7 @@ public class Registration extends Activity {
 	TextView registerErrorMsg;
 	Spinner inputAnrede;
 	
+	boolean error;
 	// JSON Response node names
 	private static String KEY_SUCCESS = "success";
 	private static String KEY_ERROR = "error";
@@ -34,6 +39,7 @@ public class Registration extends Activity {
 	private static String KEY_NAME = "name";
 	private static String KEY_EMAIL = "email";
 	private static String KEY_CREATED_AT = "created_at";
+	private JSONObject json;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,50 +55,80 @@ public class Registration extends Activity {
 				inputTelefonnummer = (EditText) findViewById(R.id.login_telefonnummer);
 				inputPassword = (EditText) findViewById(R.id.registrieren_password);
 				btnRegister = (Button) findViewById(R.id.registrieren_button_registrieren);
-				//btnLinkToLogin = (Button) findViewById(R.id.btnLinkToLoginScreen);
-				//registerErrorMsg = (TextView) findViewById(R.id.register_error);
 				
 				// Register Button Click event
 				btnRegister.setOnClickListener(new View.OnClickListener() {			
 					public void onClick(View view) {
-						String anrede = inputAnrede.getSelectedItem().toString();
-						String name = inputName.getText().toString();
-						String vorname = inputVorname.getText().toString();
-						String email = inputEmail.getText().toString();
-						String telefonnummer = inputTelefonnummer.getText().toString();
-						String password = inputPassword.getText().toString();
-						UserFunctions userFunction = new UserFunctions();
-						JSONObject json = userFunction.registerUser(anrede, name, vorname, email, telefonnummer, password);
-						
-						// check for login response
-						try {
-							if (json.getString(KEY_SUCCESS) != null) {
-								//registerErrorMsg.setText("");
-								String res = json.getString(KEY_SUCCESS); 
-								if(Integer.parseInt(res) == 1){
-									// user successfully registred
-									// Store user details in SQLite Database
-									DatabaseHandler db = new DatabaseHandler(getApplicationContext());
-									JSONObject json_user = json.getJSONObject("user");
-									
-									// Clear all previous data in database
-									userFunction.logoutUser(getApplicationContext());
-									db.addUser(json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL), json.getString(KEY_UID), json_user.getString(KEY_CREATED_AT));						
-									// Launch Dashboard Screen
-									Intent dashboard = new Intent(getApplicationContext(), MainMenu.class);
-									// Close all views before launching Dashboard
-									dashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-									startActivity(dashboard);
-									// Close Registration Screen
-									finish();
-								}else{
-									// Error in registration
-									//registerErrorMsg.setText("Error occured in registration");
+						new AsyncTask<Void, Void, Void>()
+					    {
+							final ProgressDialog dialog = ProgressDialog.show(Registration.this, "Registrierung", "Erstelle Konto...", true);
+					        @Override
+					        protected Void doInBackground(Void... params)
+					        {						String anrede = inputAnrede.getSelectedItem().toString();
+								String name = inputName.getText().toString();
+								String vorname = inputVorname.getText().toString();
+								String email = inputEmail.getText().toString();
+								String telefonnummer = inputTelefonnummer.getText().toString();
+								String password = inputPassword.getText().toString();
+								UserFunctions userFunction = new UserFunctions();
+								json = userFunction.registerUser(anrede, name, vorname, email, telefonnummer, password);
+								// check for login response
+								try {
+									if (json.getString(KEY_SUCCESS) != null) {
+										//registerErrorMsg.setText("");
+										String res = json.getString(KEY_SUCCESS); 
+										if(Integer.parseInt(res) == 1){
+											// user successfully registred
+											// Store user details in SQLite Database
+											DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+											JSONObject json_user = json.getJSONObject("user");
+											
+											// Clear all previous data in database
+											userFunction.logoutUser(getApplicationContext());
+											db.addUser(json_user.getString(KEY_NAME), json_user.getString(KEY_EMAIL), json.getString(KEY_UID), json_user.getString(KEY_CREATED_AT));						
+											// Launch Dashboard Screen
+											Intent dashboard = new Intent(getApplicationContext(), MainMenu.class);
+											// Close all views before launching Dashboard
+											dashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+											dialog.dismiss();
+											startActivity(dashboard);
+											// Close Registration Screen
+											finish();
+										}else {
+											error = true;
+										}
+									}
+								} catch (JSONException e) {
+									e.printStackTrace();
 								}
-							}
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
+					            return null;
+					        }
+
+							@Override
+					        protected void onPostExecute(Void result)
+					        {	
+								if (error) {
+									try {
+										dialog.dismiss();
+										AlertDialog.Builder alert = new AlertDialog.Builder(Registration.this);
+										alert.setTitle("Registrierung fehlgeschlagen");
+										alert.setMessage(json.get(KEY_ERROR_MSG).toString());
+										alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+											@Override  
+											public void onClick(DialogInterface dialog, int which) {  
+												dialog.dismiss();                      
+											}  
+										});
+										alert.show(); 
+									} catch (JSONException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+					        	}
+								
+					        }
+
+					    }.execute();
 					}
 				});
 		

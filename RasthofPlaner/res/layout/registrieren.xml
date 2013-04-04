@@ -19,7 +19,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Registration"
+            android:text="@string/header_registrierung"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColorLink="@android:color/darker_gray"
             android:textSize="25sp"
@@ -40,14 +40,14 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="0.33"
 	        android:onClick="onButtonClick"
-	        android:text="Zurück" />
+	        android:text="@string/button_zurueck" />
 
 	    <Button
 	        android:id="@+id/registrieren_button_registrieren"
 	        android:layout_width="124dp"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="0.34"
-	        android:text="Anlegen" />
+	        android:text="@string/button_registrieren" />
 
 	</LinearLayout>
 
@@ -126,7 +126,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
         android:textSize="16sp" />
 
     <TextView
@@ -142,7 +143,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:hint="@string/hint_telefonnummer"
+        android:inputType="phone|text"
         android:scrollbarAlwaysDrawVerticalTrack="false"
         android:textSize="16sp" />
 
@@ -164,11 +166,23 @@
     </EditText>
 
     <TextView
-        android:id="@+id/TextView03"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/registrieren_gebDatum"
         android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/login_gebdatum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_gebdatum"
+        android:inputType="date" >
+
+        <requestFocus />
+    </EditText>
+
 	</LinearLayout>
 </ScrollView>	
 		

@@ -23,5 +23,11 @@
     <string name="login_error"></string>
     <string name="mainMenu_button_logout">Logout</string>
     <string name="mainmenu_button_logout">Logout</string>
+    <string name="hint_gebdatum">z.B.: 22.05.1990</string>
+    <string name="hint_telefonnummer">01234/56789</string>
+    <string name="hint_email">abc@abc.de</string>
+    <string name="header_registrierung">Registrierung</string>
+    <string name="button_zurueck">Zurück</string>
+    <string name="button_registrieren">Anlegen</string>
 
 </resources>
