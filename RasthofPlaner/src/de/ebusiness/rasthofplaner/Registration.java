@@ -101,7 +101,7 @@ public class Registration extends Activity {
 	public void onButtonClick(View view) {
 		
 		if (view.getId() == R.id.registrieren_button_zurueck) {
-			
+			this.finish();
 			startActivity(new Intent(this,LogIn.class));
 		}
 		

@@ -47,7 +47,7 @@
 	        android:layout_width="124dp"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="0.34"
-	        android:text="Registrieren" />
+	        android:text="Anlegen" />
 
 	</LinearLayout>
 
@@ -161,24 +161,7 @@
         android:ems="10"
         android:inputType="textPassword" >
 
-        <requestFocus />
     </EditText>
-
-    <TextView
-        android:id="@+id/TextView06"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/registrieren_password"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
-
-    <EditText
-        android:id="@+id/login_password2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/TextView03"

@@ -3,6 +3,8 @@
     <string-array name="anrede">
         <item >Herr</item>
         <item >Frau</item>
+        <item >Dr.</item>
+        <item >Prof. Dr.</item>
     </string-array>
     
 </resources>
