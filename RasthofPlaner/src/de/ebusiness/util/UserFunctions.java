@@ -15,8 +15,8 @@ public class UserFunctions {
 	 
     // Testing in localhost using wamp or xampp
     // use http://10.0.2.2/ to connect to your localhost ie http://localhost/
-    private static String loginURL = "http://192.168.1.2/android_login_api/";
-    private static String registerURL = "http://192.168.1.2/android_login_api/";
+    private static String loginURL = "http://ec2-54-228-162-231.eu-west-1.compute.amazonaws.com/android_login_api/";
+    private static String registerURL = "http://ec2-54-228-162-231.eu-west-1.compute.amazonaws.com/android_login_api/";
  
     private static String login_tag = "login";
     private static String register_tag = "register";
